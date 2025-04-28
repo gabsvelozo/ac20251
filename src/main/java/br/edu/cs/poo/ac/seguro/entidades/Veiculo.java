@@ -15,4 +15,6 @@ public class Veiculo {
     private CategoriaVeiculo categoria;
 
 
+    public Veiculo(String placa, int i, Object o, Object o1, CategoriaVeiculo categoriaVeiculo) {
+    }
 }

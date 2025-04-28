@@ -1,4 +1,5 @@
 package br.edu.cs.poo.ac.seguro.daos;
+import br.edu.cs.poo.ac.seguro.entidades.SeguradoEmpresa;
 
 public class SeguradoEmpresaDAO {
 
