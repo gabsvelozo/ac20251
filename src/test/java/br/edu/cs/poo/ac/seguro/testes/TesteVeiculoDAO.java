@@ -1,6 +1,5 @@
 package br.edu.cs.poo.ac.seguro.testes;
 
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,9 +7,6 @@ import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
 import br.edu.cs.poo.ac.seguro.entidades.CategoriaVeiculo;
 import br.edu.cs.poo.ac.seguro.entidades.Veiculo;
 
-import java.io.Serializable;
-
-@AllArgsConstructor
 public class TesteVeiculoDAO extends TesteDAO {
     private VeiculoDAO dao = new VeiculoDAO();
     protected Class getClasse() {
@@ -20,7 +16,7 @@ public class TesteVeiculoDAO extends TesteDAO {
     @Test
     public void teste01() {
         String placa = "00000000";
-        cadastro.incluir((Serializable) new Veiculo(placa, 2000, null, null, CategoriaVeiculo.BASICO), placa);
+        cadastro.incluir(new Veiculo(placa, 2000, null, null, CategoriaVeiculo.BASICO), placa);
         Veiculo ve = dao.buscar(placa);
         Assertions.assertNotNull(ve);
     }

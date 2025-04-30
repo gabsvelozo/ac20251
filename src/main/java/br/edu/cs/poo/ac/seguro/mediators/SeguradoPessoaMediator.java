@@ -2,6 +2,9 @@ package br.edu.cs.poo.ac.seguro.mediators;
 
 import br.edu.cs.poo.ac.seguro.daos.SeguradoPessoaDAO;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoPessoa;
+import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
+import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
+import static br.edu.cs.poo.ac.seguro.mediators.ValidadorCpfCnpj.ehCpfValido;
 
 public class SeguradoPessoaMediator {
     private SeguradoMediator seguradoMediator = new SeguradoMediator();
@@ -9,11 +12,25 @@ public class SeguradoPessoaMediator {
     private static SeguradoPessoaMediator instancia;
 
     public String validarCpf(String cpf) {
+        if(!temSomenteNumeros(cpf)) {
+            return "O CPF possui dígito inválido.";
+        }
+        if(cpf.length() != 11){
+            return "O CPF deve ter 11 dígitos.";
+        }
+        if(!ehCpfValido(cpf)){
+            return "O CPF é inválido.";
+        }
+        if(ehNuloOuBranco(cpf)){
+            return "O CPF deve ser informado.";
+        }
         return null;
     }
+
     public String validarRenda(double renda) {
         return null;
     }
+
     public String excluirSeguradoPessoa(String cpf) {
         return null;
     }
@@ -30,17 +47,17 @@ public class SeguradoPessoaMediator {
 
     public String validarSeguradoPessoa(SeguradoPessoa seg) {
         if (seg == null) {
-            return "SeguradoPessoa não pode ser nulo.";
+            return "Segurado inválido.";
         }
-        if (seg.getCpf() == null || seg.getCpf().isEmpty()) {
-            return "CPF é obrigatório.";
+        if (!ehCpfValido(seg.getCpf())) {
+            return "CPF inválido.";
         }
-        if (seg.getNome() == null || seg.getNome().isEmpty()) {
+        if (ehNuloOuBranco(seg.getNome())) {
             return "Nome é obrigatório.";
         }
-        // Outros testes que você achar necessário...
-        return null; // Se estiver tudo OK
+        return null;
     }
+
 
     public String incluirSeguradoPessoa(SeguradoPessoa seg) {
         String msg = validarSeguradoPessoa(seg);

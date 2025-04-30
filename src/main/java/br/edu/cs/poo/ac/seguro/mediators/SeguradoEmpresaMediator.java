@@ -3,13 +3,24 @@ package br.edu.cs.poo.ac.seguro.mediators;
 import br.edu.cs.poo.ac.seguro.daos.SeguradoEmpresaDAO;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoEmpresa;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoPessoa;
+import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
+import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
+import static br.edu.cs.poo.ac.seguro.mediators.ValidadorCpfCnpj.ehCnpjValido;
 
 public class SeguradoEmpresaMediator {
     private SeguradoMediator seguradoMediator = new SeguradoMediator();
     private SeguradoEmpresaDAO seguradoEmpresaDAO;
     private static SeguradoEmpresaMediator instancia;
 
+    public static SeguradoEmpresaMediator getInstancia() {
+        if (instancia == null) {
+            instancia = new SeguradoEmpresaMediator();
+        }
+        return instancia;
+    }
+
     public String validarCnpj(String cnpj) {
+        //Usar o validador se necessário
         return null;
     }
     public String validarFaturamento(double faturamento) {
@@ -22,25 +33,18 @@ public class SeguradoEmpresaMediator {
         return null;
     }
 
-    public static SeguradoEmpresaMediator getInstancia() {
-        if (instancia == null) {
-            instancia = new SeguradoEmpresaMediator();
-        }
-        return instancia;
-    }
-
     public String validarSeguradoEmpresa(SeguradoEmpresa seg) {
         if (seg == null) {
-            return "SeguradoPessoa não pode ser nulo.";
+            return "Segurado inválido.";
         }
-        if (seg.getCnpj() == null || seg.getCnpj().isEmpty()) {
+        if (ValidadorCpfCnpj.ehCnpjValido(seg.getCnpj())) {
             return "CPF é obrigatório.";
         }
-        if (seg.getNome() == null || seg.getNome().isEmpty()) {
+        if (StringUtils.ehNuloOuBranco(seg.getNome())) {
             return "Nome é obrigatório.";
         }
-        // Outros testes que você achar necessário...
-        return null; // Se estiver tudo OK
+
+        return null;
     }
 
     public String incluirSeguradoEmpresa(SeguradoEmpresa seg) {
@@ -49,7 +53,7 @@ public class SeguradoEmpresaMediator {
             return msg;
         }
         // Código para incluir no DAO
-        // seguradoPessoaDAO.incluir(seg);
+        // seguradoEmpresaDAO.incluir(seg);
         return null;
     }
 
