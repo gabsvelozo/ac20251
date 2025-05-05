@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
 public class TesteSinistroDAO extends TesteDAO{
     private SinistroDAO dao = new SinistroDAO();
 

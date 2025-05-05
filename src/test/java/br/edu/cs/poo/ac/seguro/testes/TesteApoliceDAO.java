@@ -52,6 +52,7 @@ public class TesteApoliceDAO extends TesteDAO {
         String numero = "AP0005";
         Apolice ap = new Apolice(new Veiculo("E1234567", 2020, null, null, CategoriaVeiculo.BASICO),
                 new BigDecimal("450"), new BigDecimal("1000"), new BigDecimal("18000"), null);
+        ap.setNumero(numero);
         Assertions.assertTrue(dao.incluir(ap));
         Assertions.assertNotNull(dao.buscar(numero));
     }
@@ -61,7 +62,8 @@ public class TesteApoliceDAO extends TesteDAO {
         String numero = "AP0006";
         Apolice ap = new Apolice(new Veiculo("F1234567", 2019, null, null, CategoriaVeiculo.ESPORTIVO),
                 new BigDecimal("600"), new BigDecimal("1600"), new BigDecimal("22000"), null);
-        cadastro.incluir((Serializable) ap, numero);
+        ap.setNumero(numero);
+        cadastro.incluir(ap, numero);
         Assertions.assertFalse(dao.incluir(ap));
     }
 
@@ -78,12 +80,16 @@ public class TesteApoliceDAO extends TesteDAO {
         String numero = "AP0008";
         Apolice original = new Apolice(new Veiculo("H1234567", 2017, null, null, CategoriaVeiculo.BASICO),
                 new BigDecimal("400"), new BigDecimal("1400"), new BigDecimal("19000"), null);
-        cadastro.incluir((Serializable) original, numero);
+        original.setNumero(numero);
+        cadastro.incluir(original, numero);
 
         Apolice nova = new Apolice(new Veiculo("H1234567", 2017, null, null, CategoriaVeiculo.ESPORTIVO),
                 new BigDecimal("450"), new BigDecimal("1500"), new BigDecimal("20000"), null);
+        nova.setNumero(numero);
+
         Assertions.assertTrue(dao.alterar(nova));
     }
+
 
     @Override
     protected Class<?> getClasse() {
