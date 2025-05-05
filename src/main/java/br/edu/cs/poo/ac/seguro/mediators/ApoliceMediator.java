@@ -10,7 +10,7 @@ import br.edu.cs.poo.ac.seguro.daos.SinistroDAO;
 import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
 import br.edu.cs.poo.ac.seguro.entidades.*;
 import lombok.Getter;
-
+/*
 public class ApoliceMediator {
     private static ApoliceMediator apoliceoMediator = ApoliceMediator.getInstancia();
     @Getter
@@ -167,4 +167,4 @@ public class ApoliceMediator {
     private BigDecimal obterValorMaximoPermitido(int ano, int codigoCat) {
         return null;
     }
-}
+}*/

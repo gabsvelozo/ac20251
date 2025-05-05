@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 
 public class Sinistro implements Serializable {
-    private String numero;
     @NonNull
     private Veiculo veiculo;
     @NonNull
@@ -27,4 +26,5 @@ public class Sinistro implements Serializable {
     private BigDecimal valorSinistro;
     @NonNull
     private TipoSinistro tipo;
+    private String numero;
 }

@@ -1,10 +1,7 @@
 package br.edu.cs.poo.ac.seguro.daos;
 
 import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
-import br.edu.cs.poo.ac.seguro.entidades.Apolice;
 import br.edu.cs.poo.ac.seguro.entidades.Veiculo;
-
-import java.io.Serializable;
 
 public class VeiculoDAO extends DAOGenerico{
     public VeiculoDAO() {
@@ -17,7 +14,7 @@ public class VeiculoDAO extends DAOGenerico{
         if (buscar(veiculo.getPlaca()) != null) {
             return false;
         } else {
-            cadastro.incluir((Serializable)veiculo, veiculo.getPlaca());
+            cadastro.incluir(veiculo, veiculo.getPlaca());
             return true;
         }
     }
@@ -25,7 +22,7 @@ public class VeiculoDAO extends DAOGenerico{
         if (buscar(veiculo.getPlaca()) == null) {
             return false;
         } else {
-            cadastro.alterar((Serializable) veiculo, veiculo.getPlaca());
+            cadastro.alterar(veiculo, veiculo.getPlaca());
             return true;
         }
     }

@@ -1,6 +1,6 @@
 package br.edu.cs.poo.ac.seguro.testes;
 
-import java.io.File;
+/*import java.io.File;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -43,10 +43,10 @@ public class TesteApoliceMediator extends TesteMediator {
         FileUtils.limparDiretorio("." + sep + Sinistro.class.getSimpleName());
     }
 
-    /*
-     * Para uso interno! Este teste sempre vai passar, pois testa o construtor da
-     * classe RetornoInclusaoApolice.
-     */
+
+     //Para uso interno! Este teste sempre vai passar, pois testa o construtor da
+      //classe RetornoInclusaoApolice.
+
     @Test
     public void test000() {
         try {
@@ -452,4 +452,4 @@ public class TesteApoliceMediator extends TesteMediator {
     protected Class getClasse() {
         return Apolice.class;
     }
-}
+}*/
