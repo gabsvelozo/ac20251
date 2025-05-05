@@ -84,6 +84,6 @@ public class TesteSinistroDAO extends TesteDAO{
 
     @Override
     protected Class<?> getClasse() {
-        throw new UnsupportedOperationException("Unimplemented method 'getClasse'");
+        return Sinistro.class;
     }
 }

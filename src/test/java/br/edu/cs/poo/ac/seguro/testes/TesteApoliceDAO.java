@@ -20,7 +20,7 @@ public class TesteApoliceDAO extends TesteDAO {
         String numero = "AP0001";
         Apolice ap = new Apolice(new Veiculo("A1234567", 2020, null, null, CategoriaVeiculo.BASICO),
                 new BigDecimal("500"), new BigDecimal("1200"), new BigDecimal("20000"), numero);
-        cadastro.incluir((Serializable) ap, numero);
+        cadastro.incluir(ap, numero);
         Assertions.assertNotNull(dao.buscar(numero));
     }
 
@@ -87,7 +87,7 @@ public class TesteApoliceDAO extends TesteDAO {
 
     @Override
     protected Class<?> getClasse() {
-        throw new UnsupportedOperationException("Unimplemented method 'getClasse'");
+        return Apolice.class;
     }
 }
 
