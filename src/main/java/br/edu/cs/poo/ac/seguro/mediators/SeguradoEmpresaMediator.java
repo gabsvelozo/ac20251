@@ -1,15 +1,14 @@
 package br.edu.cs.poo.ac.seguro.mediators;
 
-import br.edu.cs.poo.ac.seguro.daos.SeguradoEmpresaDAO;
+//import br.edu.cs.poo.ac.seguro.daos.SeguradoEmpresaDAO;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoEmpresa;
-import br.edu.cs.poo.ac.seguro.entidades.SeguradoPessoa;
-import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
-import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
-import static br.edu.cs.poo.ac.seguro.mediators.ValidadorCpfCnpj.ehCnpjValido;
+//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
+//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
+//import static br.edu.cs.poo.ac.seguro.mediators.ValidadorCpfCnpj.ehCnpjValido;
 
 public class SeguradoEmpresaMediator {
-    private SeguradoMediator seguradoMediator = new SeguradoMediator();
-    private SeguradoEmpresaDAO seguradoEmpresaDAO;
+    //private SeguradoMediator seguradoMediator = new SeguradoMediator();
+    //private SeguradoEmpresaDAO seguradoEmpresaDAO;
     private static SeguradoEmpresaMediator instancia;
 
     public static SeguradoEmpresaMediator getInstancia() {
@@ -20,7 +19,6 @@ public class SeguradoEmpresaMediator {
     }
 
     public String validarCnpj(String cnpj) {
-        //Usar o validador se necessário
         return null;
     }
     public String validarFaturamento(double faturamento) {

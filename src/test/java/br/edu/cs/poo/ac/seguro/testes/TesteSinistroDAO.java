@@ -1,6 +1,6 @@
 package br.edu.cs.poo.ac.seguro.testes;
 
-import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
+//import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
 import br.edu.cs.poo.ac.seguro.entidades.*;
 import br.edu.cs.poo.ac.seguro.daos.SinistroDAO;
 import org.junit.jupiter.api.Assertions;
@@ -83,7 +83,7 @@ public class TesteSinistroDAO extends TesteDAO{
     }
 
     @Override
-    protected Class getClasse() {
+    protected Class<?> getClasse() {
         throw new UnsupportedOperationException("Unimplemented method 'getClasse'");
     }
 }

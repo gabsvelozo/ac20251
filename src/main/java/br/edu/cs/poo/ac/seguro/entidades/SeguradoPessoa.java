@@ -2,9 +2,8 @@ package br.edu.cs.poo.ac.seguro.entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.io.Serializable;
 
-public class SeguradoPessoa extends Segurado implements Serializable {
+public class SeguradoPessoa extends Segurado {
     private static final long serialVersionUID = 1L;
 
     private String cpf;

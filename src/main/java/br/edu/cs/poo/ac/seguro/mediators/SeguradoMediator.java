@@ -3,8 +3,8 @@ package br.edu.cs.poo.ac.seguro.mediators;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import br.edu.cs.poo.ac.seguro.entidades.Endereco;
-import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
-import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
+//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
+//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
 
 public class SeguradoMediator {
     private static SeguradoMediator instancia;

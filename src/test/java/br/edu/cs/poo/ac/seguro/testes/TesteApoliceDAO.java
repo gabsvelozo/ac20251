@@ -1,6 +1,6 @@
 package br.edu.cs.poo.ac.seguro.testes;
 
-import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
+//import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
 import br.edu.cs.poo.ac.seguro.entidades.Veiculo;
 import br.edu.cs.poo.ac.seguro.daos.ApoliceDAO;
 import br.edu.cs.poo.ac.seguro.entidades.Apolice;
@@ -86,7 +86,7 @@ public class TesteApoliceDAO extends TesteDAO {
     }
 
     @Override
-    protected Class getClasse() {
+    protected Class<?> getClasse() {
         throw new UnsupportedOperationException("Unimplemented method 'getClasse'");
     }
 }

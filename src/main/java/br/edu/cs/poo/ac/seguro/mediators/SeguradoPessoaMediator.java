@@ -1,14 +1,14 @@
 package br.edu.cs.poo.ac.seguro.mediators;
 
-import br.edu.cs.poo.ac.seguro.daos.SeguradoPessoaDAO;
+//import br.edu.cs.poo.ac.seguro.daos.SeguradoPessoaDAO;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoPessoa;
 import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
 import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
 import static br.edu.cs.poo.ac.seguro.mediators.ValidadorCpfCnpj.ehCpfValido;
 
 public class SeguradoPessoaMediator {
-    private SeguradoMediator seguradoMediator = new SeguradoMediator();
-    private SeguradoPessoaDAO seguradoPessoaDAO;
+    //private SeguradoMediator seguradoMediator = new SeguradoMediator();
+    //private SeguradoPessoaDAO seguradoPessoaDAO;
     private static SeguradoPessoaMediator instancia;
 
     public String validarCpf(String cpf) {
