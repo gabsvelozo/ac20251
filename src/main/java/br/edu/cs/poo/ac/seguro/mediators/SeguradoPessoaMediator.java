@@ -1,15 +1,19 @@
 package br.edu.cs.poo.ac.seguro.mediators;
 
-//import br.edu.cs.poo.ac.seguro.daos.SeguradoPessoaDAO;
+import br.edu.cs.poo.ac.seguro.daos.SeguradoPessoaDAO;
+import br.edu.cs.poo.ac.seguro.daos.SeguradoPessoaDAO;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoPessoa;
+
+import java.time.LocalDate;
+
 import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
 import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
 import static br.edu.cs.poo.ac.seguro.mediators.ValidadorCpfCnpj.ehCpfValido;
 
 public class SeguradoPessoaMediator {
-    //private SeguradoMediator seguradoMediator = new SeguradoMediator();
-    //private SeguradoPessoaDAO seguradoPessoaDAO;
-    private static SeguradoPessoaMediator instancia;
+    private SeguradoMediator seguradoMediator = SeguradoMediator.getInstance();
+    private SeguradoPessoaDAO seguradoPessoaDAO = new SeguradoPessoaDAO();
+    private static SeguradoPessoaMediator instancia = new SeguradoPessoaMediator();
 
     public String validarCpf(String cpf) {
         if (cpf == null || cpf.trim().isEmpty()) {
@@ -65,10 +69,16 @@ public class SeguradoPessoaMediator {
     }
 
     public String excluirSeguradoPessoa(String cpf) {
+        if(seguradoPessoaDAO.buscar(cpf) == null){
+            return "CPF do segurado pessoa não existente";
+        }
         return null;
     }
     public SeguradoPessoa buscarSeguradoPessoa(String cpf) {
-        return null;
+        if (cpf == null || cpf.trim().isEmpty() || validarCpf(cpf) != null) {
+            return null;
+        }
+        return seguradoPessoaDAO.buscar(cpf);
     }
 
     public static SeguradoPessoaMediator getInstancia() {
@@ -82,23 +92,43 @@ public class SeguradoPessoaMediator {
         if (seg == null) {
             return "Segurado inválido.";
         }
-        if (!ehCpfValido(seg.getCpf())) {
-            return "CPF inválido.";
+
+        String msgCpf = validarCpf(seg.getCpf());
+        if (msgCpf != null) {
+            return msgCpf;
         }
+
         if (ehNuloOuBranco(seg.getNome())) {
-            return "Nome é obrigatório.";
+            return "Nome deve ser informado";
         }
+
+        if (seg.getdataNascimento() == null) {
+            return "Data do nascimento deve ser informada";
+        }
+
+        String msgEndereco = seguradoMediator.validarEndereco(seg.getEndereco());
+        if (msgEndereco != null) {
+            return msgEndereco;
+        }
+
         return null;
     }
-
 
     public String incluirSeguradoPessoa(SeguradoPessoa seg) {
         String msg = validarSeguradoPessoa(seg);
         if (msg != null) {
             return msg;
         }
-        // Código para incluir no DAO
-        // seguradoPessoaDAO.incluir(seg);
+
+        if (seg.getRenda() < 0) {
+            return "Renda deve ser maior ou igual à zero";
+        }
+
+        if(seguradoPessoaDAO.buscar(seg.getCpf()) != null) {
+            return "CPF do segurado pessoa já existente";
+        }
+
+        seguradoPessoaDAO.incluir(seg);
         return null;
     }
 
@@ -107,9 +137,23 @@ public class SeguradoPessoaMediator {
         if (msg != null) {
             return msg;
         }
-        // Código para alterar no DAO
-        // seguradoPessoaDAO.alterar(seg);
+
+        if (seg.getRenda() < 0) {
+            return "Renda deve ser maior ou igual à zero";
+        }
+
+        if(seguradoPessoaDAO.buscar(seg.getCpf()) == null) {
+            return "CPF do segurado pessoa não existente";
+        }
+
+        seguradoPessoaDAO.alterar(seg);
         return null;
     }
 
+    public String validarNascimento(LocalDate dataNascimento){
+        if(dataNascimento == null){
+            return "Data do nascimento deve ser informada";
+        }
+        return null;
+    }
 }
