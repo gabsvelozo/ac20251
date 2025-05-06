@@ -1,6 +1,6 @@
 package br.edu.cs.poo.ac.seguro.testes;
 
-//import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
+import br.edu.cs.poo.ac.seguro.daos.VeiculoDAO;
 import br.edu.cs.poo.ac.seguro.entidades.Veiculo;
 import br.edu.cs.poo.ac.seguro.daos.ApoliceDAO;
 import br.edu.cs.poo.ac.seguro.entidades.Apolice;
@@ -29,7 +29,7 @@ public class TesteApoliceDAO extends TesteDAO {
         String numero = "AP0002";
         Apolice ap = new Apolice(new Veiculo("B1234567", 2021, null, null, CategoriaVeiculo.ESPORTIVO),
                 new BigDecimal("700"), new BigDecimal("1500"), new BigDecimal("25000"), null);
-        cadastro.incluir((Serializable) ap, numero);
+        cadastro.incluir(ap, numero);
         Assertions.assertNull(dao.buscar("AP9999"));
     }
 
@@ -38,7 +38,7 @@ public class TesteApoliceDAO extends TesteDAO {
         String numero = "AP0003";
         Apolice ap = new Apolice(new Veiculo("C1234567", 2022, null, null, CategoriaVeiculo.BASICO),
                 new BigDecimal("300"), new BigDecimal("1100"), new BigDecimal("15000"), null);
-        cadastro.incluir((Serializable) ap, numero);
+        cadastro.incluir(ap, numero);
         Assertions.assertTrue(dao.excluir(numero));
     }
 

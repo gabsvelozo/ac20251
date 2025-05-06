@@ -1,6 +1,7 @@
 package br.edu.cs.poo.ac.seguro.entidades;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 

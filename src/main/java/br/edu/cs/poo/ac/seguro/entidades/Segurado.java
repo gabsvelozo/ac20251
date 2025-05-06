@@ -54,11 +54,13 @@ public class Segurado implements Serializable{
     }
 
     public BigDecimal creditarBonus(BigDecimal valor){
-        return valor.add(bonus);
+        this.bonus = this.bonus.add(valor);
+        return this.bonus;
     }
 
     public BigDecimal debitarBonus(BigDecimal valor){
-        return valor.subtract(bonus);
+        this.bonus = this.bonus.subtract(valor);
+        return this.bonus;
     }
 
 }
