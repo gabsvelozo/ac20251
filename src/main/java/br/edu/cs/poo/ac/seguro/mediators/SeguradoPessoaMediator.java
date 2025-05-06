@@ -72,8 +72,10 @@ public class SeguradoPessoaMediator {
         if(seguradoPessoaDAO.buscar(cpf) == null){
             return "CPF do segurado pessoa não existente";
         }
+        seguradoPessoaDAO.excluir(cpf);
         return null;
     }
+
     public SeguradoPessoa buscarSeguradoPessoa(String cpf) {
         if (cpf == null || cpf.trim().isEmpty() || validarCpf(cpf) != null) {
             return null;

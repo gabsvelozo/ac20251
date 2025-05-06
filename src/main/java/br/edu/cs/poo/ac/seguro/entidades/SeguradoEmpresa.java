@@ -47,4 +47,8 @@ public class SeguradoEmpresa extends Segurado{
     public void setDataAbertura(LocalDate dataAbertura){
         setDataCriacao(dataAbertura);
     }
+
+    public SeguradoEmpresa() {
+        super(null, null, null, null);
+    }
 }
