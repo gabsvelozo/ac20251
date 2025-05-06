@@ -1,6 +1,6 @@
 package br.edu.cs.poo.ac.seguro.testes;
 
-/*import java.io.File;
+import java.io.File;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,7 +20,7 @@ import br.edu.cs.poo.ac.seguro.entidades.Veiculo;
 import br.edu.cs.poo.ac.seguro.mediators.ApoliceMediator;
 import br.edu.cs.poo.ac.seguro.mediators.DadosVeiculo;
 import br.edu.cs.poo.ac.seguro.mediators.RetornoInclusaoApolice;
-import br.edu.cs.poo.divisao.RetornoDivisao;
+// import br.edu.cs.poo.divisao.RetornoDivisao;
 
 public class TesteApoliceMediator extends TesteMediator {
 
@@ -452,4 +452,4 @@ public class TesteApoliceMediator extends TesteMediator {
     protected Class getClasse() {
         return Apolice.class;
     }
-}*/
+}
