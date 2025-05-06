@@ -12,22 +12,55 @@ public class SeguradoPessoaMediator {
     private static SeguradoPessoaMediator instancia;
 
     public String validarCpf(String cpf) {
-        if(!temSomenteNumeros(cpf)) {
-            return "O CPF possui dígito inválido.";
+        if (cpf == null || cpf.trim().isEmpty()) {
+            return "CPF deve ser informado";
         }
-        if(cpf.length() != 11){
-            return "O CPF deve ter 11 dígitos.";
+
+        String cpfNumerico = cpf.replaceAll("[^0-9]", "");
+        if (cpfNumerico.length() != 11) {
+            return "CPF deve ter 11 caracteres";
         }
-        if(!ehCpfValido(cpf)){
-            return "O CPF é inválido.";
+
+        if (todosDigitosIguais(cpfNumerico)) {
+            return "CPF com dígito inválido";
         }
-        if(ehNuloOuBranco(cpf)){
-            return "O CPF deve ser informado.";
+
+        int digito1 = calcularDigito(cpfNumerico.substring(0, 9), 10);
+        if (digito1 != Character.getNumericValue(cpfNumerico.charAt(9))) {
+            return "CPF com dígito inválido";
+        }
+
+        int digito2 = calcularDigito(cpfNumerico.substring(0, 10), 11);
+        if (digito2 != Character.getNumericValue(cpfNumerico.charAt(10))) {
+            return "CPF com dígito inválido";
         }
         return null;
     }
 
+    private boolean todosDigitosIguais(String cpf) {
+        char primeiroDigito = cpf.charAt(0);
+        for (int i = 1; i < cpf.length(); i++) {
+            if (cpf.charAt(i) != primeiroDigito) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private int calcularDigito(String str, int pesoInicial) {
+        int soma = 0;
+        for (int i = 0; i < str.length(); i++) {
+            soma += Character.getNumericValue(str.charAt(i)) * pesoInicial--;
+        }
+
+        int resto = soma % 11;
+        return (resto < 2) ? 0 : (11 - resto);
+    }
+
     public String validarRenda(double renda) {
+        if(renda < 0){
+            return "Renda deve ser maior ou igual à zero";
+        }
         return null;
     }
 
