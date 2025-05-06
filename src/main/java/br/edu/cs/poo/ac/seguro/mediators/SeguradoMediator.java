@@ -19,7 +19,10 @@ public class SeguradoMediator {
 
     public String validarNome(String nome) {
         if(StringUtils.ehNuloOuBranco(nome)){
-            return "O nome é obrigatório";
+            return "Nome deve ser informado";
+        }
+        if(nome.length() > 100){
+            return "Tamanho do nome deve ser no máximo 100 caracteres";
         }
         return null;
     }
@@ -61,15 +64,19 @@ public class SeguradoMediator {
 
     public String validarDataCriacao(LocalDate dataCriacao) {
         if (dataCriacao == null) {
-            return "Data da abertura deve ser informada";
+            return "Data da criação deve ser informada";
         }
         if (dataCriacao.isAfter(LocalDate.now())) {
-            return "Data de criação não pode ser futura.";
+            return "Data da criação deve ser menor ou igual à data atual";
         }
         return null;
     }
     public BigDecimal ajustarDebitoBonus(BigDecimal bonus, BigDecimal valorDebito) {
-        return null;
+        if (bonus.compareTo(valorDebito) <= 0) {
+            return bonus;
+        } else {
+            return valorDebito;
+        }
     }
 
     public static SeguradoMediator getInstancia() {
