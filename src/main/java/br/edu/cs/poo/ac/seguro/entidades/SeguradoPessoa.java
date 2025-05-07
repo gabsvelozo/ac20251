@@ -32,9 +32,7 @@ public class SeguradoPessoa extends Segurado implements Serializable {
         this.renda = renda;
     }
 
-    public LocalDate getdataNascimento(){
-        return this.getDataCriacao();
-    }
+    public LocalDate getdataNascimento(){ return this.getDataCriacao(); }
 
     public void setdataNascimento(LocalDate dataAbertura){
         setdataNascimento(dataAbertura);

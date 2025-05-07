@@ -1,13 +1,8 @@
 package br.edu.cs.poo.ac.seguro.mediators;
 
 import br.edu.cs.poo.ac.seguro.daos.SeguradoEmpresaDAO;
-import br.edu.cs.poo.ac.seguro.daos.SeguradoPessoaDAO;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoEmpresa;
-
 import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
-//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
-//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
-//import static br.edu.cs.poo.ac.seguro.mediators.ValidadorCpfCnpj.ehCnpjValido;
 
 public class SeguradoEmpresaMediator {
     private static SeguradoEmpresaMediator instancia;
@@ -36,7 +31,6 @@ public class SeguradoEmpresaMediator {
             return "CNPJ inválido.";
         }
 
-        // Cálculo dos dígitos verificadores
         int[] pesosPrimeiro = {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
         int[] pesosSegundo  = {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
 

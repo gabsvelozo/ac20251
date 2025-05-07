@@ -27,9 +27,7 @@ public class ApoliceMediator {
     private SeguradoPessoaDAO daoSegPes;
     private VeiculoDAO daoVel;
     private ApoliceDAO daoApo;
-    //private ApoliceDAO apoliceDAO = new ApoliceDAO();
-
-
+    // private ApoliceDAO apoliceDAO = new ApoliceDAO();
     private ApoliceMediator() {}
 
     private CategoriaVeiculo obterCategoriaPorCodigo(int codigo) {
@@ -157,8 +155,6 @@ public class ApoliceMediator {
         return null;
     }
 
-
-
     private String validarTodosDadosVeiculo(DadosVeiculo dados) {
         Segurado segurado;
 
@@ -180,7 +176,6 @@ public class ApoliceMediator {
         Veiculo veiculo = daoVel.buscar(dados.getPlaca());
         String cpfOuCnpj = dados.getCpfOuCnpj();
 
-        //verificacao de cpf e cnpj
         if (ehNuloOuBranco(cpfOuCnpj)) {
             return "CPF ou CNPJ deve ser informado";
         }
@@ -190,7 +185,6 @@ public class ApoliceMediator {
         boolean pessoa = true;
         SeguradoPessoa seguradoPessoa = null;
         SeguradoEmpresa seguradoEmpresa = null;
-
 
         if (veiculo == null){
 
@@ -233,8 +227,8 @@ public class ApoliceMediator {
             if (daoApo.buscar(numeroApolice) != null) {
                 return "Apólice já existente para ano atual e veículo";
             }
-
         }
+
         if (cpfOuCnpj.length() == 11) {
             String msgCpf = seguradoPessoaMediator.validarCpf(cpfOuCnpj);
             if (msgCpf != null) {
@@ -257,7 +251,6 @@ public class ApoliceMediator {
         } else {
             return "CPF ou CNPJ deve ser informado";
         }
-
 
         if (veiculo != null) {
 

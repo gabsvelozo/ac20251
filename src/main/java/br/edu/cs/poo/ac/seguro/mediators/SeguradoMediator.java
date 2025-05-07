@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import br.edu.cs.poo.ac.seguro.entidades.Endereco;
 
 import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
-//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.ehNuloOuBranco;
-//import static br.edu.cs.poo.ac.seguro.mediators.StringUtils.temSomenteNumeros;
 
 public class SeguradoMediator {
     private static SeguradoMediator instancia = new SeguradoMediator();
@@ -26,6 +24,7 @@ public class SeguradoMediator {
         }
         return null;
     }
+
     public String validarEndereco(Endereco endereco) {
         if(endereco == null)
             return "Endereço deve ser informado";
