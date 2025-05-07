@@ -19,6 +19,7 @@ public class ApoliceDAO extends DAOGenerico {
             return true;
         }
     }
+
     public boolean alterar(Apolice segurado) {
         if (buscar(segurado.getNumero()) == null) {
             return false;
@@ -27,6 +28,7 @@ public class ApoliceDAO extends DAOGenerico {
             return true;
         }
     }
+
     public boolean excluir(String numero) {
         if (buscar(numero) == null) {
             return false;
