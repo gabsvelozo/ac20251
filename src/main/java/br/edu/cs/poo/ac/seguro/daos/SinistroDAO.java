@@ -20,6 +20,7 @@ public class SinistroDAO extends DAOGenerico {
             return true;
         }
     }
+
     public boolean alterar(Sinistro segurado) {
         if (buscar(segurado.getNumero()) == null) {
             return false;
@@ -28,6 +29,7 @@ public class SinistroDAO extends DAOGenerico {
             return true;
         }
     }
+
     public boolean excluir(String numero) {
         if (buscar(numero) == null) {
             return false;
@@ -36,6 +38,7 @@ public class SinistroDAO extends DAOGenerico {
             return true;
         }
     }
+
     public Sinistro[] buscarTodos() {
         Object[] objetos = cadastro.buscarTodos();
         Sinistro[] sinistros = new Sinistro[objetos.length];

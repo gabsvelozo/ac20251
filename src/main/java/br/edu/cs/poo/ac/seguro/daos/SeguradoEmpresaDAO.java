@@ -1,4 +1,5 @@
 package br.edu.cs.poo.ac.seguro.daos;
+
 import br.edu.cesarschool.next.oo.persistenciaobjetos.CadastroObjetos;
 import br.edu.cs.poo.ac.seguro.entidades.SeguradoEmpresa;
 
@@ -17,6 +18,7 @@ public class SeguradoEmpresaDAO extends DAOGenerico{
             return true;
         }
     }
+
     public boolean alterar(SeguradoEmpresa segurado) {
         if (buscar(segurado.getCnpj()) == null) {
             return false;
@@ -25,6 +27,7 @@ public class SeguradoEmpresaDAO extends DAOGenerico{
             return true;
         }
     }
+
     public boolean excluir(String cnpj) {
         if (buscar(cnpj) == null) {
             return false;

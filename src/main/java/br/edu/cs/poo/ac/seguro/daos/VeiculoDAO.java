@@ -7,9 +7,11 @@ public class VeiculoDAO extends DAOGenerico{
     public VeiculoDAO() {
         cadastro = new CadastroObjetos(Veiculo.class);
     }
+
     public Veiculo buscar(String placa) {
         return (Veiculo)cadastro.buscar(placa);
     }
+
     public boolean incluir(Veiculo veiculo) {
         if (buscar(veiculo.getPlaca()) != null) {
             return false;
@@ -18,6 +20,7 @@ public class VeiculoDAO extends DAOGenerico{
             return true;
         }
     }
+
     public boolean alterar(Veiculo veiculo) {
         if (buscar(veiculo.getPlaca()) == null) {
             return false;
@@ -26,6 +29,7 @@ public class VeiculoDAO extends DAOGenerico{
             return true;
         }
     }
+
     public boolean excluir(String placa) {
         if (buscar(placa) == null) {
             return false;
