@@ -45,15 +45,16 @@ public abstract class DAOGenerico <T extends Registro>{
         }
     }
 
-    public Registro[] buscarTodos() {
+    public T[] buscarTodos() {
         Serializable[] serializables = cadastro.buscarTodos();
         if (serializables == null) {
-            return new Registro[0]; // Retorna array vazio em vez de null
+            return (T[]) java.lang.reflect.Array.newInstance(getClasseEntidade(), 0);
         }
-        Registro[] registros = new Registro[serializables.length];
+
+        T[] registros = (T[]) java.lang.reflect.Array.newInstance(getClasseEntidade(), serializables.length);
         for (int i = 0; i < serializables.length; i++) {
-            if (serializables[i] instanceof Registro) {
-                registros[i] = (Registro) serializables[i];
+            if (getClasseEntidade().isInstance(serializables[i])) {
+                registros[i] = (T) serializables[i];
             }
         }
         return registros;

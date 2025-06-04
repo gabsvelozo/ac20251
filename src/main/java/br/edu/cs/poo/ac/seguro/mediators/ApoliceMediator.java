@@ -94,6 +94,7 @@ public class ApoliceMediator {
             if (todosSinistros != null) {
                 for (Sinistro sin : todosSinistros) {
                     if (sin != null && sin.getVeiculo() != null &&
+                            sin.getDataHoraSinistro() != null &&
                             sin.getVeiculo().getPlaca().equals(dados.getPlaca()) &&
                             sin.getDataHoraSinistro().getYear() == anoAnterior) {
                         houveSinistro = true;
@@ -140,12 +141,15 @@ public class ApoliceMediator {
 
         SinistroDAO daoSin = new SinistroDAO();
         Sinistro[] todosSinistros = daoSin.buscarTodos();
-
-        for (Sinistro sinistro : todosSinistros) {
-            if (sinistro.getVeiculo().getPlaca().equalsIgnoreCase(veiApolice.getPlaca())) {
-                int anoSinistro = sinistro.getDataHoraSinistro().getYear();
-                if (anoSinistro == anoApolice) {
-                    return "Existe sinistro cadastrado para o veículo em questão e no mesmo ano da apólice";
+        if (todosSinistros != null) {
+            for (Sinistro sinistro : todosSinistros) {
+                if (sinistro != null && sinistro.getVeiculo() != null &&
+                        sinistro.getDataHoraSinistro() != null &&
+                        sinistro.getVeiculo().getPlaca().equalsIgnoreCase(veiApolice.getPlaca())) {
+                    int anoSinistro = sinistro.getDataHoraSinistro().getYear();
+                    if (anoSinistro == anoApolice) {
+                        return "Existe sinistro cadastrado para o veículo em questão e no mesmo ano da apólice";
+                    }
                 }
             }
         }
