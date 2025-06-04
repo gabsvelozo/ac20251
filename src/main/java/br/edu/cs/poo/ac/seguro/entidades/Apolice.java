@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Apolice implements Serializable {
+public class Apolice implements Registro {
     private static final long serialVersionUID = 1L;
     private String numero;
     private Veiculo veiculo;
@@ -20,4 +20,9 @@ public class Apolice implements Serializable {
     private BigDecimal valorPremio;
     private BigDecimal valorMaximoSegurado;
     private LocalDate dataInicioVigencia;
+
+    @Override
+    public String getIdUnico() {
+        return numero;
+    }
 }

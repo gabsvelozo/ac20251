@@ -51,4 +51,14 @@ public class SeguradoEmpresa extends Segurado{
     public SeguradoEmpresa() {
         super(null, null, null, null);
     }
+
+    @Override
+    public boolean isEmpresa() {
+        return true;
+    }
+
+    @Override
+    public String getIdUnico() {
+        return cnpj;
+    }
 }

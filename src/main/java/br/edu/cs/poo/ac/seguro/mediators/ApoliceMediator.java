@@ -27,7 +27,6 @@ public class ApoliceMediator {
     private SeguradoPessoaDAO daoSegPes;
     private VeiculoDAO daoVel;
     private ApoliceDAO daoApo;
-    // private ApoliceDAO apoliceDAO = new ApoliceDAO();
     private ApoliceMediator() {}
 
     private CategoriaVeiculo obterCategoriaPorCodigo(int codigo) {
@@ -92,10 +91,11 @@ public class ApoliceMediator {
             int anoAnterior = LocalDateTime.now().getYear() - 1;
 
             boolean houveSinistro = false;
-            for (Sinistro sin : todosSinistros) {
-                Veiculo v = sin.getVeiculo();
-                if (v != null) {
-                    if (sin.getDataHoraSinistro().getYear() == anoAnterior) {
+            if (todosSinistros != null) {
+                for (Sinistro sin : todosSinistros) {
+                    if (sin != null && sin.getVeiculo() != null &&
+                            sin.getVeiculo().getPlaca().equals(dados.getPlaca()) &&
+                            sin.getDataHoraSinistro().getYear() == anoAnterior) {
                         houveSinistro = true;
                         break;
                     }
@@ -156,7 +156,7 @@ public class ApoliceMediator {
     }
 
     private String validarTodosDadosVeiculo(DadosVeiculo dados) {
-        Segurado segurado;
+        Segurado segurado = null;
 
         SeguradoPessoaMediator seguradoPessoaMediator = SeguradoPessoaMediator.getInstancia();
         SeguradoEmpresaMediator empresaMediator = SeguradoEmpresaMediator.getInstancia();
@@ -254,42 +254,44 @@ public class ApoliceMediator {
 
         if (veiculo != null) {
 
-            Segurado seguradoAtual = null;
-            String CpfOuCnpj = null;
-            if(dados.getCpfOuCnpj().length() == 11){
-                seguradoAtual = veiculo.getProprietarioPessoa();
-                CpfOuCnpj = veiculo.getProprietarioPessoa().getCpf();
+            Segurado seguradoAtual = veiculo.getProprietario();
+            String cpfOuCnpjAtual = null;
 
-            } else if (dados.getCpfOuCnpj().length() == 14){
-                seguradoAtual = veiculo.getProprietarioEmpresa();
-                CpfOuCnpj = veiculo.getProprietarioEmpresa().getCnpj();
+            if (seguradoAtual != null) {
+                if (seguradoAtual.isEmpresa()) {
+                    cpfOuCnpjAtual = ((SeguradoEmpresa) seguradoAtual).getCnpj();
+                } else {
+                    cpfOuCnpjAtual = ((SeguradoPessoa) seguradoAtual).getCpf();
+                }
             }
 
-            if (seguradoAtual == null || !dados.getCpfOuCnpj().equals(CpfOuCnpj)) {
+            // Verifica se o proprietário atual está errado e precisa ser atualizado
+            if (seguradoAtual == null || !dados.getCpfOuCnpj().equals(cpfOuCnpjAtual)) {
                 if (dados.getCpfOuCnpj().length() == 11) {
-                    veiculo.setProprietarioPessoa(seguradoPessoa);
-                    veiculo.setProprietarioEmpresa(null);
+                    veiculo.setProprietario(seguradoPessoa);
                 } else {
-                    veiculo.setProprietarioEmpresa(seguradoEmpresa);
-                    veiculo.setProprietarioPessoa(null);
+                    veiculo.setProprietario(seguradoEmpresa);
                 }
                 daoVel.alterar(veiculo);
             }
 
+            // Verificação de valor máximo segurado
             if (dados.getValorMaximoSegurado() == null || dados.getValorMaximoSegurado().compareTo(BigDecimal.ZERO) <= 0) {
                 return "Valor máximo segurado inválido.";
             }
 
+            // Geração e verificação de apólice existente
             String numeroApolice = gerarNumero(dados.getCpfOuCnpj(), dados.getPlaca());
             if (daoApo.buscar(numeroApolice) != null) {
                 return "Apólice já existente para ano atual e veículo";
             }
         }
 
+
         if(pessoa){
-            vel = new Veiculo(dados.getPlaca(), dados.getAno(), null, seguradoPessoa, obterCategoriaPorCodigo(dados.getCodigoCategoria()));
+            vel = new Veiculo(dados.getPlaca(), dados.getAno(), segurado, obterCategoriaPorCodigo(dados.getCodigoCategoria()));
         } else{
-            vel = new Veiculo(dados.getPlaca(), dados.getAno(), seguradoEmpresa, null, obterCategoriaPorCodigo(dados.getCodigoCategoria()));
+            vel = new Veiculo(dados.getPlaca(), dados.getAno(), segurado, obterCategoriaPorCodigo(dados.getCodigoCategoria()));
         }
 
         if (veiculo == null)
