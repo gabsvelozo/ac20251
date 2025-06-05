@@ -9,4 +9,5 @@ public class ApoliceDAO extends DAOGenerico<Apolice> {
     public Class<Apolice> getClasseEntidade(){
         return Apolice.class;
     }
+
 }

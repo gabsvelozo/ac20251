@@ -104,7 +104,7 @@ public class SeguradoPessoaMediator {
             return "Nome deve ser informado";
         }
 
-        if (seg.getdataNascimento() == null) {
+        if (seg.getDataNascimento() == null) {
             return "Data do nascimento deve ser informada";
         }
 
