@@ -4,26 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExcecaoValidacaoDados extends Exception {
-    private List<String> mensagensErro;
+    private List<String> mensagens;
 
     public ExcecaoValidacaoDados() {
-        this.mensagensErro = new ArrayList<>();
+        this.mensagens = new ArrayList<>();
     }
 
     public ExcecaoValidacaoDados(String mensagem) {
         this();
-        this.mensagensErro.add(mensagem);
+        this.mensagens.add(mensagem);
     }
 
     public void adicionarMensagem(String mensagem) {
-        this.mensagensErro.add(mensagem);
+        this.mensagens.add(mensagem);
     }
 
-    public List<String> getMensagensErro() {
-        return mensagensErro;
+    public List<String> getMensagens() {
+        return mensagens;
     }
 
     public boolean temErros() {
-        return !mensagensErro.isEmpty();
+        return !mensagens.isEmpty();
+    }
+
+    public void setMensagens(List<String> mensagens) {
+        this.mensagens = mensagens;
     }
 }

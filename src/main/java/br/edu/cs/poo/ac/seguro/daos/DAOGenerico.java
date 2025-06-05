@@ -45,6 +45,14 @@ public abstract class DAOGenerico <T extends Registro>{
         }
     }
 
+    public void salvar(T registro) {
+        if (buscar(registro.getIdUnico()) == null) {
+            cadastro.incluir(registro, registro.getIdUnico());
+        } else {
+            cadastro.alterar(registro, registro.getIdUnico());
+        }
+    }
+
     public T[] buscarTodos() {
         Serializable[] serializables = cadastro.buscarTodos();
         if (serializables == null) {

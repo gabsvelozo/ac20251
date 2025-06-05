@@ -41,7 +41,7 @@ public class SinistroMediator {
         }
 
         // Validações complexas (veículo, apólice, etc.)
-        Veiculo veiculo = validarVeiculo(dados.getPlacaVeiculo(), excecao);
+        Veiculo veiculo = validarVeiculo(dados.getPlaca(), excecao);
         Apolice apoliceVigente = validarApoliceVigente(dados, veiculo, excecao);
 
         // Se houver erros nas validações complexas, lança a exceção
@@ -50,7 +50,7 @@ public class SinistroMediator {
         }
 
         // Valida valor do sinistro vs valor máximo da apólice
-        if (dados.getValor() > apoliceVigente.getValorMaximoSegurado()) {
+        if (dados.getValorSinistro() > apoliceVigente.getValorMaximoSegurado()) {
             excecao.adicionarMensagem("Valor do sinistro excede o valor máximo segurado na apólice");
             throw excecao;
         }
@@ -61,11 +61,11 @@ public class SinistroMediator {
         // Criar e salvar o sinistro
         Sinistro sinistro = new Sinistro(
                 numeroSinistro,
-                dados.getDataHora(),
+                dados.getDataHoraSinistro(),
                 veiculo,
                 dados.getUsuarioRegistro(),
-                dados.getValor(),
-                dados.getTipoSinistro(),
+                dados.getValorSinistro(),
+                dados.getCodigoTipoSinistro(),
                 apoliceVigente.getNumero(),
                 obterSequencial(apoliceVigente)
         );
@@ -81,13 +81,13 @@ public class SinistroMediator {
             return;
         }
 
-        if (dados.getDataHora() == null) {
+        if (dados.getDataHoraSinistro() == null) {
             excecao.adicionarMensagem("Data/hora do sinistro não pode ser nula");
-        } else if (dados.getDataHora().isAfter(dataHoraAtual)) {
+        } else if (dados.getDataHoraSinistro().isAfter(dataHoraAtual)) {
             excecao.adicionarMensagem("Data/hora do sinistro deve ser menor que a atual");
         }
 
-        if (dados.getPlacaVeiculo() == null || dados.getPlacaVeiculo().isBlank()) {
+        if (dados.getPlaca() == null || dados.getPlaca().isBlank()) {
             excecao.adicionarMensagem("Placa do veículo não pode ser nula ou vazia");
         }
 
@@ -95,11 +95,11 @@ public class SinistroMediator {
             excecao.adicionarMensagem("Usuário do registro não pode ser nulo ou vazio");
         }
 
-        if (dados.getValor() <= 0) {
+        if (dados.getValorSinistro() <= 0) {
             excecao.adicionarMensagem("Valor do sinistro deve ser maior que zero");
         }
 
-        if (dados.getTipoSinistro() == null) {
+        if (dados.getCodigoTipoSinistro() == 0) {
             excecao.adicionarMensagem("Tipo de sinistro não pode ser nulo");
         }
     }
@@ -118,7 +118,7 @@ public class SinistroMediator {
 
         List<Apolice> apolices = daoApolice.buscarPorVeiculo(veiculo);
         for (Apolice apolice : apolices) {
-            if (apolice.estaVigenteNaData(dados.getDataHora())) {
+            if (apolice.estaVigenteNaData(dados.getDataHoraSinistro())) {
                 return apolice;
             }
         }

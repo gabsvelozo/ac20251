@@ -34,6 +34,9 @@ public class Sinistro implements Registro {
         this.tipo = tipo;
     }
 
+    public Sinistro(String numeroSinistro, LocalDateTime dataHoraSinistro, Veiculo veiculo, String usuarioRegistro, double valorSinistro, int codigoTipoSinistro, String numero, int i) {
+    }
+
     @Override
     public String getIdUnico() {
         return numero;

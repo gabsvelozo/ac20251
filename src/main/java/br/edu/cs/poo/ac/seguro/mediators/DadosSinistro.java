@@ -10,9 +10,9 @@ public class DadosSinistro {
     private double valorSinistro;
     private int codigoTipoSinistro;
 
-    DadosSinistro(String placa, LocalDate dataHoraSinistro, String usuarioRegistro, double valorSinistro, int codigoTipoSinistro) {
+    public DadosSinistro(String placa, LocalDateTime dataHoraSinistro, String usuarioRegistro, double valorSinistro, int codigoTipoSinistro) {
         this.placa = placa;
-        this.dataHoraSinistro = dataHoraSinistro.atStartOfDay();
+        this.dataHoraSinistro = dataHoraSinistro;
         this.usuarioRegistro = usuarioRegistro;
         this.valorSinistro = valorSinistro;
         this.codigoTipoSinistro = codigoTipoSinistro;

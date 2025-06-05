@@ -7,4 +7,14 @@ public class VeiculoDAO extends DAOGenerico<Veiculo>{
     public Class<Veiculo> getClasseEntidade(){
         return Veiculo.class;
     }
+
+    public Veiculo buscarPorPlaca(String placa) {
+        for (Veiculo veiculo : buscarTodos()) {
+            if (veiculo.getPlaca().equalsIgnoreCase(placa)) {
+                return veiculo;
+            }
+        }
+        return null;
+    }
+
 }
