@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.time.LocalDate;
 
+import br.edu.cs.poo.ac.seguro.testes.TesteMediator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
