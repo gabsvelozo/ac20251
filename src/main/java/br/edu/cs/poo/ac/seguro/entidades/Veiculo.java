@@ -17,7 +17,7 @@ public class Veiculo implements Registro{
     private Segurado proprietario;
     private CategoriaVeiculo categoria;
 
-    @Override
+	@Override
     public String getIdUnico() {
         return placa;
     }

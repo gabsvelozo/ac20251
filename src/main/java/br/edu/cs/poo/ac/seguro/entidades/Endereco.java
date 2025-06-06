@@ -79,4 +79,5 @@ public class Endereco implements Serializable {
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
+
 }

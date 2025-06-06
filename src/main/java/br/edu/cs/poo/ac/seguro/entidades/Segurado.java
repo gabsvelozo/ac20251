@@ -3,7 +3,6 @@ package br.edu.cs.poo.ac.seguro.entidades;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
-import java.io.Serializable;
 
 public abstract class Segurado implements Registro{
     private static final long serialVersionUID = 1L;
