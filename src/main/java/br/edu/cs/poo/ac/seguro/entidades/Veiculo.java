@@ -17,7 +17,14 @@ public class Veiculo implements Registro{
     private Segurado proprietario;
     private CategoriaVeiculo categoria;
 
-    @Override
+    public Veiculo(String placa, int ano, Segurado proprietario, CategoriaVeiculo categoria) {
+		this.placa = placa;
+		this.ano = ano;
+		this.proprietario = proprietario;
+		this.categoria = categoria;
+	}
+
+	@Override
     public String getIdUnico() {
         return placa;
     }
