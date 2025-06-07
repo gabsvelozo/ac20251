@@ -89,6 +89,7 @@ public class TelaSeguradoEmpresa extends JFrame {
         JLabel lblEhLocadoraDeVeiculos = new JLabel("Eh Locadora de Veiculos:");
         chkEhLocadoraDeVeiculos = new JCheckBox("Sim");
         chkEhLocadoraDeVeiculos.setEnabled(false);
+        chkEhLocadoraDeVeiculos.setSelected(false);
 
         personalDataPanel.add(lblNome);
         personalDataPanel.add(txtNome);

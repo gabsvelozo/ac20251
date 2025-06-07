@@ -12,6 +12,8 @@ public class Home extends javax.swing.JFrame {
     }
 
     private void initComponents() {
+        Color lilasClaro = Color.decode("#E6CCF5");
+        getContentPane().setBackground(lilasClaro);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Seguros");
         setResizable(false);
@@ -19,6 +21,9 @@ public class Home extends javax.swing.JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         mainPanel.setLayout(new BorderLayout(10, 20));
+        mainPanel.setOpaque(false);
+        mainPanel.setBackground(new Color(0, 0, 0, 0));
+
 
         JLabel titleLabel = new JLabel("SISTEMA DE SEGUROS");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
@@ -28,6 +33,7 @@ public class Home extends javax.swing.JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(4, 1, 10, 15));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
+        buttonPanel.setBackground(new Color(0, 0, 0, 0));
 
         JButton btnPessoa = createMenuButton("CRUD Segurado Pessoa");
         JButton btnEmpresa = createMenuButton("CRUD Segurado Empresa");
