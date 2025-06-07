@@ -18,6 +18,8 @@ public class DadosSinistro {
         this.codigoTipoSinistro = codigoTipoSinistro;
     }
 
+    public DadosSinistro() {}
+
     public String getPlaca() {
         return placa;
     }
