@@ -82,7 +82,13 @@ public class TelaSinistro extends JFrame {
         addRow(gbc, formPanel, lblUsuarioRegistro, txtUsuarioRegistro, 3);
 
         JLabel lblValorSinistro = new JLabel("Valor do Sinistro:");
-        txtValorSinistro = new JFormattedTextField(NumberFormat.getNumberInstance());
+        try {
+            MaskFormatter valorMask = new MaskFormatter("###.###.###");
+            valorMask.setPlaceholderCharacter('_');
+            txtValorSinistro = new JFormattedTextField(valorMask);
+        } catch (Exception e) {
+            txtValorSinistro = new JFormattedTextField();
+        }
         txtValorSinistro.setColumns(15);
         addRow(gbc, formPanel, lblValorSinistro, txtValorSinistro, 4);
 

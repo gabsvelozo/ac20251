@@ -65,11 +65,23 @@ public class TelaApolice extends JFrame {
         addRow(gbc, formPanel, lblPlaca, txtPlaca, 1);
 
         JLabel lblAno = new JLabel("Ano do Veículo:");
-        txtAno = new JTextField(15);
+        try {
+            MaskFormatter anoMask = new MaskFormatter("###.###.###");
+            anoMask.setPlaceholderCharacter('_');
+            txtAno = new JFormattedTextField(anoMask);
+        } catch (Exception e) {
+            txtAno = new JFormattedTextField();
+        }
         addRow(gbc, formPanel, lblAno, txtAno, 2);
 
         JLabel lblValorMaximo = new JLabel("Valor do Maximo:");
-        txtValorMaximo = new JFormattedTextField(NumberFormat.getNumberInstance());
+        try {
+            MaskFormatter valorMask = new MaskFormatter("###.###.###");
+            valorMask.setPlaceholderCharacter('_');
+            txtValorMaximo = new JFormattedTextField(valorMask);
+        } catch (Exception e) {
+            txtValorMaximo = new JFormattedTextField();
+        }
         txtValorMaximo.setColumns(15);
         addRow(gbc, formPanel, lblValorMaximo, txtValorMaximo, 3);
 

@@ -79,11 +79,23 @@ public class TelaSeguradoEmpresa extends JFrame {
         txtDataAbertura.setEnabled(false);
 
         JLabel lblFaturamento = new JLabel("Faturamento:");
-        txtFaturamento = new JTextField();
+        try {
+            MaskFormatter faturamentoMask = new MaskFormatter("###.###.###");
+            faturamentoMask.setPlaceholderCharacter('_');
+            txtFaturamento = new JFormattedTextField(faturamentoMask);
+        } catch (Exception e) {
+            txtFaturamento = new JFormattedTextField();
+        }
         txtFaturamento.setEnabled(false);
 
         JLabel lblBonus = new JLabel("Bônus:");
-        txtBonus = new JTextField();
+        try {
+            MaskFormatter bonusMask = new MaskFormatter("###.###.###");
+            bonusMask.setPlaceholderCharacter('_');
+            txtBonus = new JFormattedTextField(bonusMask);
+        } catch (Exception e) {
+            txtBonus = new JFormattedTextField();
+        }
         txtBonus.setEnabled(false);
 
         JLabel lblEhLocadoraDeVeiculos = new JLabel("Eh Locadora de Veiculos:");
