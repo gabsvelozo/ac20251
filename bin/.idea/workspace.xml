@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="899751be-a8ad-473f-a9ba-0eba28f44ac4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cesarschool/telas/Entidade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cesarschool/telas/EntidadeMediator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cesarschool/telas/TelaAdicao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cesarschool/telas/TelaExemploCadastro.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Sofia1653&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gabsvelozo/ac20251.git&quot;,
+    &quot;accountId&quot;: &quot;c5e4cd10-ee26-4c49-9e59-c00f03770f1e&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2y3VsHG4EpuvYvoXzT94AbTsRLE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.TesteApoliceDAO.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteApoliceMediator.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteApoliceMediator.test002.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteDAOGenerico.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteSeguradoEmpresaDAO.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteSeguradoEmpresaMediator.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteSeguradoMediator.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteSeguradoPessoaMediator.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteSinistroMediator.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TesteVeiculoDAO.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestesEntidades.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alcel/Desktop/CesarSchool/ac/ac20251&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="TesteApoliceMediator.test002" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ac20251" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.edu.cs.poo.ac.seguro.testes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.edu.cs.poo.ac.seguro.testes" />
+      <option name="MAIN_CLASS_NAME" value="br.edu.cs.poo.ac.seguro.testes.TesteApoliceMediator" />
+      <option name="METHOD_NAME" value="test002" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TesteApoliceMediator.test002" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="899751be-a8ad-473f-a9ba-0eba28f44ac4" name="Changes" comment="" />
+      <created>1749063449344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749063449344</updated>
+      <workItem from="1749063450795" duration="8776000" />
+      <workItem from="1749075528798" duration="1091000" />
+      <workItem from="1749120447683" duration="909000" />
+      <workItem from="1749146385386" duration="2997000" />
+      <workItem from="1749152083747" duration="638000" />
+      <workItem from="1749158170095" duration="1869000" />
+      <workItem from="1749162002808" duration="1439000" />
+      <workItem from="1749165512231" duration="1577000" />
+      <workItem from="1749200870100" duration="3000" />
+      <workItem from="1749201166188" duration="13000" />
+      <workItem from="1749229764334" duration="764000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
