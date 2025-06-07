@@ -12,7 +12,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     private void initComponents() {
-        Color lilasClaro = Color.decode("#E6CCF5");
+        Color lilasClaro = Color.decode("#E6CCF6");
         getContentPane().setBackground(lilasClaro);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Seguros");
