@@ -28,7 +28,7 @@ public class TelaSeguradoEmpresa extends JFrame {
     private JTextField txtCidade;
     private JFormattedTextField txtCep;
     private JTextField txtBonus;
-    private JTextField txtEhLocadoraDeVeiculos;
+    private JCheckBox chkEhLocadoraDeVeiculos;
 
     private JButton btnNovo;
     private JButton btnBuscar;
@@ -87,8 +87,8 @@ public class TelaSeguradoEmpresa extends JFrame {
         txtBonus.setEnabled(false);
 
         JLabel lblEhLocadoraDeVeiculos = new JLabel("Eh Locadora de Veiculos:");
-        txtEhLocadoraDeVeiculos = new JTextField();
-        txtEhLocadoraDeVeiculos.setEnabled(false);
+        chkEhLocadoraDeVeiculos = new JCheckBox("Sim");
+        chkEhLocadoraDeVeiculos.setEnabled(false);
 
         personalDataPanel.add(lblNome);
         personalDataPanel.add(txtNome);
@@ -99,7 +99,7 @@ public class TelaSeguradoEmpresa extends JFrame {
         personalDataPanel.add(lblBonus);
         personalDataPanel.add(txtBonus);
         personalDataPanel.add(lblEhLocadoraDeVeiculos);
-        personalDataPanel.add(txtEhLocadoraDeVeiculos);
+        personalDataPanel.add(chkEhLocadoraDeVeiculos);
 
         JPanel addressPanel = new JPanel(new GridLayout(7, 2, 5, 5));
         addressPanel.setBorder(BorderFactory.createTitledBorder("Endereço"));
@@ -252,7 +252,7 @@ public class TelaSeguradoEmpresa extends JFrame {
 
         if (segurado instanceof SeguradoEmpresa) {
             SeguradoEmpresa empresa = (SeguradoEmpresa) segurado;
-            txtEhLocadoraDeVeiculos.setText(String.valueOf(empresa.isEhLocadoraDeVeiculos()));
+            chkEhLocadoraDeVeiculos.setText(String.valueOf(empresa.isEhLocadoraDeVeiculos()));
         }
 
         Endereco endereco = segurado.getEndereco();
@@ -299,7 +299,7 @@ public class TelaSeguradoEmpresa extends JFrame {
             BigDecimal bonus = txtBonus.getText().isEmpty() ?
                     BigDecimal.ZERO : new BigDecimal(txtBonus.getText());
 
-            String ehLocadoraStr = txtEhLocadoraDeVeiculos.getText().trim().toLowerCase();
+            String ehLocadoraStr = chkEhLocadoraDeVeiculos.getText().trim().toLowerCase();
             boolean ehLocadoraDeVeiculos;
 
             if (ehLocadoraStr.equals("true") || ehLocadoraStr.equals("false")) {
@@ -392,7 +392,7 @@ public class TelaSeguradoEmpresa extends JFrame {
         txtDataAbertura.setText("");
         txtFaturamento.setText("");
         txtBonus.setText("");
-        txtEhLocadoraDeVeiculos.setText("");
+        chkEhLocadoraDeVeiculos.setText("");
         txtLogradouro.setText("");
         txtCep.setText("");
         txtNumero.setText("");
@@ -419,7 +419,7 @@ public class TelaSeguradoEmpresa extends JFrame {
         txtDataAbertura.setEnabled(enabled);
         txtFaturamento.setEnabled(enabled);
         txtBonus.setEnabled(enabled);
-        txtEhLocadoraDeVeiculos.setEnabled(enabled);
+        chkEhLocadoraDeVeiculos.setEnabled(enabled);
         txtLogradouro.setEnabled(enabled);
         txtCep.setEnabled(enabled);
         txtNumero.setEnabled(enabled);
